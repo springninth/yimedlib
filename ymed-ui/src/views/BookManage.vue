@@ -46,6 +46,7 @@
     <!-- 书籍表格 -->
     <el-table :data="books" style="width: 100%; margin-top: 16px" @row-click="goDetail">
       <el-table-column prop="id" label="ID" width="80" />
+      <el-table-column prop="code" label="编号" width="120" />
       <el-table-column prop="title" label="书名" />
       <el-table-column prop="author" label="著者" />
       <el-table-column prop="edition" label="版本" />
@@ -98,7 +99,7 @@
         <el-form-item label="载体形式">
           <el-input v-model="form.carrierForm" />
         </el-form-item>
-        <el-form-item label="编号">
+        <el-form-item label="编号" prop="code">
           <el-input v-model="form.code" />
         </el-form-item>
         <el-form-item label="册数">
@@ -211,6 +212,7 @@ const form = ref({
 const formRef = ref();
 const rules = {
   title: [{ required: true, message: '请输入书名', trigger: 'blur' }],
+  code: [{ required: true, message: '请输入编号', trigger: 'blur' }],
   categoryId: [{ required: true, message: '请选择类目', trigger: 'change' }]
 };
 const router = useRouter();
